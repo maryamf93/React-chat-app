@@ -4,19 +4,23 @@
 
 .App {
   text-align: center; 
+  
 }
 
+/* Styling to Forms Elements */
 .container {
   width: 30%;
   height: 400px;
   margin: 115px auto;
-  padding: 20px;
+  padding: 10px 20px;
   background: #e2e0e0;
   box-shadow: 0px 2px 2px #0000004d;
   border-radius: 5px;
+  text-align: center;
+  color: #2b2929
 }
 
-.inputBox {
+.input-box {
   display: block;
   width: 75%;
   padding: 10px 8px;
@@ -28,7 +32,7 @@
 
 .submit {
   border: 1px solid transparent;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: bold;
   color: #fff;
   background-color: #9170cf;
@@ -36,7 +40,8 @@
 }
 
 .submit:hover {
-  background-color: #3d217e
+  background-color: #3d217e;
+  transition: all 0.7s ease;
 }
 
 .App-logo {

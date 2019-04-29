@@ -7,12 +7,22 @@ class Login extends React.Component {
         return (
             <div className='container' >
                 <h1>
-                    
+                    Log in
                 </h1>
                 <img className='logo' />
-                <Input />
-                <Input />
-                <button className='submit inputBox' >
+                <input 
+                    className='input-box' 
+                    type='email' 
+                    placeholder='Email'
+                    value={this.props.email}
+                />
+                <input 
+                    className='input-box' 
+                    type='password' 
+                    placeholder='password'
+                    value={this.props.password}
+                />
+                <button className='submit input-box' >
                     Log in
                 </button>
             </div>

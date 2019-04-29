@@ -4,7 +4,12 @@ class Input extends React.Component {
     render() {
         return (
             <div >
-                <input className='inputBox' />
+                <span>
+                    <i>
+
+                    </i>
+                </span>
+                <input className='input-box'  />
             </div>
         );
     }
