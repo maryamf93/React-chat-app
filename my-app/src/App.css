@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-size: 14px;
 }
 
 .App {
@@ -94,14 +95,14 @@
 }
 
 .conversationList-box {
+  overflow: auto;
   flex-grow: 3;
   padding: 2px;
   border: 1px solid #c7c0c0b4;
 }
 
 .chat-box {
-  flex-grow: 7;
-  border: 1px solid #c7c0c0b4; 
+ 
 }
 
 /* Styling to every Conversation */
@@ -110,16 +111,15 @@
   width: 100%;
   height: 80px;
   padding: 10px;
-  background-color: #fff7f7;
+  background-color: #fff;
   border-radius: 2px;
   display: flex;
   flex-flow: row wrap;
+  border: 1px solid #00000013;
 }
 
 h4,p {
- /* padding-bottom: 0px; */
-  margin: 10px 10px -3px 10px;
-  overflow: hidden;
+  margin: 10px 10px 0 10px;
 }
 
 .pro-img-box {
@@ -133,12 +133,92 @@ h4,p {
   flex-grow: 4;
   width:50px;
   height: 60px;
-  background-color: #61dafb;
 }
 
 .right-div-conv {
+  direction: rtl;
   flex-grow: 1;
   width: 50px;
   height: 60px;
-  background-color: #8d3f28;
+}
+
+.time,.un-read-msg {
+  color: #808080;
+  margin: 10px; 
+}
+
+.un-read-msg {
+  border-radius: 12px;
+  background-color: #59a309f5;
+  color: #fff;
+  padding: 2px 6px;
+}
+
+/* chat design */
+
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 7;
+}
+
+.recived-msg {
+  align-self: flex-start;
+  margin: 10px;
+}
+
+.sended-msg {
+  align-self: flex-end;
+  margin: 10px;
+}
+
+.snd-msg-spn {
+  background-color: #9dee47b6;
+ 
+}
+
+.rcv-msg-spn {
+  background-color: #fff;
+}
+
+.rcv-msg-spn,.snd-msg-spn {
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 400px;
+  display: inline-block;
+  line-height: 1.4em;
+}
+
+header,footer {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid  #00000013;
+}
+
+header {
+  align-self: flex-start;
+  height: 60px;
+  position: fixed;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+}
+
+
+textarea { 
+  resize: none;
+  overflow: hidden;
+  width: 50%;
+  border: 0px;
+  margin: 5px 30px ;
+  padding: 10px;
+ 
+
 }
