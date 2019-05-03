@@ -10,7 +10,7 @@
 /* Styling to Forms Elements */
 .container {
   width: 30%;
-  height: 425px;
+  height: 470px;
   margin: 115px auto;
   padding: 10px 20px;
   background: #e2e0e0;
@@ -23,11 +23,15 @@
   font-family: tahoma;
 }
 
+.container h1 {
+  font-size: 28px;
+}
+
 .input-box {
   width: 75%;
   padding: 10px 8px;
   border-radius: 4px;
-  margin: 10px auto;
+  margin: 15px auto 0px auto;
   border: 1px solid #ccc;
   box-shadow: inset 0 1px 1px #00000013;
 }
@@ -101,10 +105,6 @@
   border: 1px solid #c7c0c0b4;
 }
 
-.chat-box {
- 
-}
-
 /* Styling to every Conversation */
 
 .conversation-box {
@@ -127,6 +127,13 @@ h4,p {
   height: 60px;
   border-radius: 50%;
   background-color: rgb(174, 151, 212);
+}
+
+.profile {
+  width: 100px;
+  height: 100px;
+  align-self: center;
+  margin-top: -10px;
 }
 
 .left-div-conv {
@@ -160,6 +167,15 @@ h4,p {
   display: flex;
   flex-direction: column;
   flex-grow: 7;
+}
+
+.add-contact {
+  font-size: 26px;
+  width: 100%;
+  height: 50px;
+  background-color: #d1caca;
+  align-self: flex-start;
+
 }
 
 .recived-msg {
@@ -217,8 +233,8 @@ textarea {
   overflow: hidden;
   width: 50%;
   border: 0px;
-  margin: 5px 30px ;
+  margin: 10px 30px ;
   padding: 10px;
- 
-
+  height:30px;
+  font-size: 14px;
 }
