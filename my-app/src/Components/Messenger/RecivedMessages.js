@@ -7,6 +7,9 @@ class RecivedMessage extends React.Component {
         <span className='rcv-msg-spn'>
           {this.props.recivedMsg}
         </span>
+        <span className='date'>
+          12:16
+        </span>
       </div>
     )
   }

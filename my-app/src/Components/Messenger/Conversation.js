@@ -15,7 +15,7 @@ class Conversation extends React.Component {
 
         <div className='left-div-conv'>
           <h4 className='contact-name'>
-            {this.props.contactName}
+            {this.props.userName}
           </h4>
           <p className='message'>
             {this.props.latestMessage}

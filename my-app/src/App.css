@@ -76,17 +76,6 @@
 
 
 
-.App-header  
-{
- background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
 .App-link {
   color: #61dafb;
@@ -96,13 +85,31 @@
 .messenger-box {
   display: flex;
   flex-flow: row nowrap;
+  height: 100vh;
 }
 
-.conversationList-box {
-  overflow: auto;
+.conversationList-box-outer {
+  display: flex;
+  flex-direction: column;
   flex-grow: 3;
-  padding: 2px;
-  border: 1px solid #c7c0c0b4;
+  overflow: auto;
+}
+
+.conversationList-box-inner {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  flex: 1 1 auto;
+  position: relative;
+  overflow-y: auto;
+}
+
+.add-contact {
+  flex: 0 0 auto;
+  font-size: 26px;
+  height: 62px;
+  background-color: #fff;
+  border: 1px solid #00000013;
 }
 
 /* Styling to every Conversation */
@@ -112,7 +119,6 @@
   height: 80px;
   padding: 10px;
   background-color: #fff;
-  border-radius: 2px;
   display: flex;
   flex-flow: row wrap;
   border: 1px solid #00000013;
@@ -162,30 +168,30 @@ h4,p {
 }
 
 /* chat design */
+.chat-box-outer {
+   display: flex;
+  flex-direction: column; 
+  flex-grow: 7;
+  overflow: auto;
 
-.chat-box {
+}
+.chat-box-inner {
   display: flex;
   flex-direction: column;
-  flex-grow: 7;
-}
-
-.add-contact {
-  font-size: 26px;
-  width: 100%;
-  height: 50px;
-  background-color: #d1caca;
-  align-self: flex-start;
-
+  height: auto;
+  flex: 1 1 auto;
+  position: relative;
+  overflow-y: auto;
 }
 
 .recived-msg {
   align-self: flex-start;
-  margin: 10px;
+  margin: 5px;
 }
 
 .sended-msg {
   align-self: flex-end;
-  margin: 10px;
+  margin: 5px;
 }
 
 .snd-msg-spn {
@@ -207,34 +213,61 @@ h4,p {
 }
 
 header,footer {
+  display: flex;
+  flex-direction: row;
   width: 100%;
   background-color: #fff;
-  border: 1px solid  #00000013;
+  border: 1px solid #00000013;
 }
 
 header {
-  align-self: flex-start;
-  height: 60px;
-  position: fixed;
+  flex: 0 0 auto;
+  padding: 0 10px;
 }
 
 footer {
-  display: flex;
-  flex-direction: row;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-
+  flex: 0 0 auto;
 }
 
 
 textarea { 
   resize: none;
   overflow: hidden;
-  width: 50%;
+  width: 60%;
   border: 0px;
   margin: 10px 30px ;
   padding: 10px;
   height:30px;
   font-size: 14px;
 }
+
+.send-msg-btn {
+  flex: 0 3 auto;
+  align-self: center;
+
+}
+
+/* Start design scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #80808000; 
+  border-radius: 5px; height: 30px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffffff00; 
+  border-radius: 10px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #d859aed3; 
+
+}
+/* End Design scrollbar */

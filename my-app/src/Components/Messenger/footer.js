@@ -5,6 +5,9 @@ class Footer extends React.Component {
     return (
       <footer>
         <textarea className='text' placeholder='Write a Message' />
+        <button className='send-msg-btn' />
+
+       
       </footer>
     )
   }
