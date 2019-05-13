@@ -6,12 +6,20 @@
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-free-regular": "^5.0.13",
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.0"
+    "react-redux": "^7.0.3",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.0",
+    "redux": "^4.0.1",
+    "validate.js": "^0.12.0"
   },
   "scripts": {
+    "standard": "standard",
+    "standard::fix": "standard --fix",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

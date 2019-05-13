@@ -1,18 +1,16 @@
-import React from 'react';
+import React from 'react'
 
 class Input extends React.Component {
-    render() {
-        return (
-            <div >
-                <span>
-                    <i>
-
-                    </i>
-                </span>
-                <input className='input-box'  />
-            </div>
-        );
-    }
+  render () {
+    return (
+      <div >
+        <span>
+          <i />
+        </span>
+        <input className='input-box' />
+      </div>
+    )
+  }
 }
 
-export default Input;
+export default Input

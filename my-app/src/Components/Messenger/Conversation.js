@@ -1,5 +1,4 @@
 import React from 'react'
-// import pro from '../../photo.jpg'
 
 class Conversation extends React.Component {
   render () {
@@ -8,29 +7,29 @@ class Conversation extends React.Component {
 
         <div className='pro-img-box'>
           <img
-            className='pro-img-box'
+            className='profile-img'
             src={this.props.profileImg}
           />
         </div>
 
-        <div className='left-div-conv'>
-          <h4 className='contact-name'>
-            {this.props.userName}
-          </h4>
-          <p className='message'>
-            {this.props.latestMessage}
-          </p>
-        </div>
-
-        <div className='right-div-conv'>
-          <div className='time'>
-            {this.props.time}
+        <div className='contentContainer' >
+          <div className='info-conversation' >
+            <span className='contact-name'>
+              {this.props.userName}
+            </span>
+            <span className='date'>
+              {this.props.time}
+            </span>
           </div>
-          <span className='un-read-msg'>
-            {this.props.unReadMsg}
-          </span>
+          <div className='info-conversation' >
+            <span className='message'>
+              {this.props.latestMessage}
+            </span>
+            <span className='un-read-msg'>
+              {this.props.unReadMsg}
+            </span>
+          </div>
         </div>
-
       </div>
     )
   }

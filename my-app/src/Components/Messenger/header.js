@@ -6,7 +6,7 @@ class Header extends React.Component {
       <header>
         <img className='pro-img-box' />
         <h4 className='contact-name'>
-    zahra rezaei
+          maryam fooladi
         </h4>
       </header>
     )

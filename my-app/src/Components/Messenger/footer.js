@@ -1,13 +1,12 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Footer extends React.Component {
   render () {
     return (
       <footer>
         <textarea className='text' placeholder='Write a Message' />
-        <button className='send-msg-btn' />
-
-       
+        <FontAwesomeIcon icon='faHome' className='fas fa-camera fa-10x' />
       </footer>
     )
   }

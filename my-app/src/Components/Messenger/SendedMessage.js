@@ -6,6 +6,9 @@ class SendedMessage extends React.Component {
       <div className='sended-msg'>
         <span className='snd-msg-spn'>
           {this.props.sendedMsg}
+          <span className='date'>
+           12:16
+          </span>
         </span>
       </div>
     )
