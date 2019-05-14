@@ -1,5 +1,5 @@
 import React from 'react'
-// import Input from './Input'
+import validate from '../../validation/validateFunction'
 import logo from '../../image/logo.png'
 import { Link } from 'react-router-dom'
 import emailIcon from '../../image/emailIcon.png'
@@ -10,7 +10,11 @@ class Login extends React.Component {
     super(props)
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      error: {
+        email: null,
+        password: null
+      }
     }
   }
   // eslint-desable
@@ -24,8 +28,17 @@ class Login extends React.Component {
     console.log(event.target.value)
   }
 
-  onClick (event) {
-    console.log('this is', this)
+  onClick () {
+    var emailError = validate('email', this.state.email)
+    var passwordError = validate('password', this.state.password)
+    // var error = {}
+    // error.email = emailError
+    // error.password = passwordError
+    // this.setState({ error })
+    this.setState({ ...this.state,
+      error: {
+        ...this.state.error, email: emailError, password: passwordError }
+    })
   }
   // eslint-enable
   render () {
@@ -41,7 +54,7 @@ class Login extends React.Component {
             alt='chat-logo'
           />
 
-          <div class='input-box'>
+          <div className='input-box'>
             <img
               className='material-icons'
               src={emailIcon}
@@ -56,11 +69,13 @@ class Login extends React.Component {
             />
           </div>
 
-          { this.state.email.length >= 2 &&
-          <p>{this.state.email}</p>
+          { this.state.error.email !== null &&
+          <p className='error-message' >
+            {this.state.error.email}
+          </p>
           }
 
-          <div class='input-box'>
+          <div className='input-box'>
             <img
               className='material-icons'
               src={passIcon}
@@ -75,17 +90,28 @@ class Login extends React.Component {
             />
           </div>
 
-          { this.state.email.length >= 2 &&
-          <p>{this.state.email}</p>
+          { this.state.error.password !== null &&
+          <p className='error-message' >
+            {this.state.error.password}
+          </p>
           }
 
           <button
             className='submit input-box'
-            onClick={this.onClick}
+            onClick={() => this.onClick()}
           >
             Log in
           </button>
-          <Link to='/signup/'>Users</Link>
+          <p>
+            Don't have an account?
+            <Link
+              to='/signup/'
+              className='link'
+            >
+              SIGN UP
+            </Link>
+          </p>
+
         </div>
       </div>
     )

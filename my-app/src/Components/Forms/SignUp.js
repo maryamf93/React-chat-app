@@ -1,4 +1,5 @@
 import React from 'react'
+import validate from '../../validation/validateFunction'
 import emailIcon from '../../image/emailIcon.png'
 import passIcon from '../../image/passIcon.png'
 // import Input from './Input'
@@ -10,7 +11,12 @@ class SignUp extends React.Component {
     this.state = {
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      error: {
+        email: null,
+        password: null,
+        confirmPassword: null
+      }
     }
   }
 
@@ -24,8 +30,15 @@ class SignUp extends React.Component {
     console.log(event.target.value)
   }
 
-  onClick (event) {
-    console.log('this is', this)
+  onClick () {
+    var emailError = validate('email', this.state.email)
+    var passwordError = validate('password', this.state.password)
+    this.setState({ ...this.state,
+      error: { ...this.state.error,
+        email: emailError,
+        password: passwordError
+      }
+    })
   }
 
   render () {
@@ -39,7 +52,7 @@ class SignUp extends React.Component {
             Please fill in this form to create an account!
           </p>
           <hr />
-          <div class='input-box'>
+          <div className='input-box'>
             <img
               className='material-icons'
               src={emailIcon}
@@ -53,7 +66,12 @@ class SignUp extends React.Component {
               onChange={(event) => this.onChange(event)}
             />
           </div>
-          <div class='input-box'>
+          { this.state.error.email !== null &&
+            <p className='error-message'>
+              {this.state.error.email}
+            </p>
+          }
+          <div className='input-box'>
             <img
               className='material-icons'
               src={passIcon}
@@ -67,8 +85,11 @@ class SignUp extends React.Component {
               onChange={(event) => this.onChange(event)}
             />
           </div>
-
-          <div class='input-box'>
+          { this.state.error.password !== null &&
+            <p className='error-message'>
+              {this.state.error.password}
+            </p>}
+          <div className='input-box'>
             <img
               className='material-icons'
               src={passIcon}
@@ -82,13 +103,15 @@ class SignUp extends React.Component {
               onChange={(event) => this.onChange(event)}
             />
           </div>
-          { this.state.password !== this.state.confirmPassword &&
-            <p> dnnhd </p>
+          { this.state.confirmPassword !== this.state.password &&
+            <p className='error-message'>
+              fffcdfc
+            </p>
           }
 
           <button
             className='submit input-box'
-            onClick={this.onClick}
+            onClick={() => this.onClick()}
           >
             Sign Up
           </button>

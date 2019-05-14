@@ -4,21 +4,69 @@ import photo from '../../image/photo.jpg'
 import addUser from '../../image/addUser.png'
 
 class ConversationList extends React.Component {
-  // constructor (props) {
-  //   super(this)
-  //   this.state = {
-  //     conversationList = [
-  //       {
-  //         profileImg={photo}
-  //           userName='React Group'
-  //           latestMessage='hi everybody hi everybody hi e'
-  //           time='12:35'
-  //           unReadMsg='100000000'
-  //       }
-  //     ]
-  //   }
+  constructor (props) {
+    super(props)
+    this.state = {
+      conversationList: [
+        {
+          profileImg: { photo },
+          userName: 'React Group',
+          latestMessage: 'hi eve everybody hi everybody hi e eve rybody hi erybody hi everybody hi e every',
+          time: '12:35',
+          unReadMsg: '10000000'
+        }, {
+          profileUrl: { photo },
+          userName: 'React Group',
+          latestMessage: ' سلام به همه اعضای محترم گروه سلام به همه اعضای محترم گروه ',
+          time: '12:35',
+          unReadMsg: '5'
+        }, {
+          profileImg: { photo },
+          userName: 'React Group',
+          latestMessage: 'hi eve everybody hi',
+          time: '12:35',
+          unReadMsg: '260'
+        }, {
+          profileImg: { photo },
+          userName: 'React Group',
+          latestMessage: 'hi',
+          time: '12:35',
+          unReadMsg: '8'
+        }, {
+          profileImg: { photo },
+          userName: 'React Group',
+          latestMessage: 'hi eve everybody hi everybody ',
+          time: '12:35',
+          unReadMsg: '1000'
+        }, {
+          profileImg: { photo },
+          userName: 'React Group',
+          latestMessage: 'hi eve everybody ',
+          time: '12:35',
+          unReadMsg: '6'
+        }, {
+          profileImg: { photo },
+          userName: 'React Group',
+          latestMessage: 'hi eve everybody hi ',
+          time: '12:35',
+          unReadMsg: '40'
+        }, {
+          profileImg: { photo },
+          userName: 'React Group',
+          latestMessage: 'hi eve everybody ',
+          time: '12:35',
+          unReadMsg: '10'
+        }, {
+          profileImg: { photo },
+          userName: 'React Group',
+          latestMessage: 'hi eve everybody ',
+          time: '12:35',
+          unReadMsg: '10'
+        }
 
-  // }
+      ]
+    }
+  }
 
   render () {
     console.log(this.props.profileUrl)
@@ -32,87 +80,19 @@ class ConversationList extends React.Component {
         </div>
         <div className='conversationList-box-inner'>
 
-          {/* { this.state.conversationList.map( (Conversation, index) => {
+          { this.state.conversationList.map((conversation, index) => {
             return (
               <Conversation
-              key = {index}
-              name = {conversation.profileImg}
-              userName = {conversation.userName}
-              latestMessage = {converation.latestMessage}
+                key={index}
+                profileImg={photo}
+                userName={conversation.userName}
+                latestMessage={conversation.latestMessage}
+                time={conversation.time}
+                unReadMsg={conversation.unReadMsg}
               />
             )
-          } ) } */}
-
-          <Conversation
-            profileImg={photo}
-            userName='React Group'
-            latestMessage='hi eve everybody hi everybody hi e eve rybody hi erybody hi everybody hi e every'
-            time='12:35'
-            unReadMsg='100000000'
-          />
-          <Conversation
-            profileUrl={photo}
-            userName='React Group'
-            latestMessage='hi everybody'
-            time='12:35'
-            unReadMsg='10'
-          />
-          <Conversation
-            profileUrl={photo}
-            userName='React Group'
-            latestMessage=' سلام به همه اعضای محترم گروه سلام به همه اعضای محترم گروه '
-            time='12:35'
-            unReadMsg='5'
-          />
-          <Conversation
-            profileUrl={photo}
-            userName='React Group'
-            latestMessage='hi everybody'
-            time='12:35'
-            unReadMsg='10'
-          />
-          <Conversation
-            profileUrl={photo}
-            userName='React Group'
-            latestMessage='hi everybody'
-            time='12:35'
-            unReadMsg='10'
-          />
-          <Conversation
-            profileUrl={photo}
-            userName='React Group'
-            latestMessage='hi everybody'
-            time='12:35'
-            unReadMsg='10'
-          />
-          <Conversation
-            profileUrl={photo}
-            userName='React Group'
-            latestMessage='hi everybody'
-            time='12:35'
-            unReadMsg='10'
-          />
-          <Conversation
-            profileUrl={photo}
-            userName='React Group'
-            latestMessage='hi everybody'
-            time='12:35'
-            unReadMsg='10'
-          />
-          <Conversation
-            profileUrl={photo}
-            userName='React Group'
-            latestMessage='hi everybody'
-            time='12:35'
-            unReadMsg='10'
-          />
-          <Conversation
-            profileUrl={photo}
-            userName='React Group'
-            latestMessage='hi everybody'
-            time='12:35'
-            unReadMsg='10'
-          />
+          })
+          }
         </div>
       </div>
     )

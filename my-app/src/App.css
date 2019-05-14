@@ -25,6 +25,7 @@
   flex-direction: column;
   color: #2b2929;
   font-family: tahoma;
+  font-weight: 700;
   background-image: linear-gradient(25deg, #29292952, #57575185, #29292993,  #57575193, #2929297c); 
 }
 
@@ -55,7 +56,8 @@
 
 .material-icons {
   flex-grow: 1;
-  width: 15px;
+  width: 10px;
+  margin: 5px
 }
 
 ::-webkit-input-placeholder{
@@ -69,7 +71,7 @@
   color: #fff;
   padding: 5px;
   background-color: #c7608c;
-  margin-top: 30px;
+  margin: 30px 0;
 }
 
 .submit:hover {
@@ -82,11 +84,26 @@
   align-self: center;
 }
 
-a {
-  color: #122121;
+.link {
+  color: #ad0b62;
+  padding: 3px;
   text-decoration: none;
+  font-size: 14px;
+}
+
+.link:hover {
+  color: #eb1185;
   font-size: 16px;
+  transition: all .3s;
+}
+
+.error-message{
+  color:  #fd6161;
+  background-color: #8a385a;
+  padding: 5px;
   font-weight: 700px;
+  border-radius: 30px;
+  font-size: 16px
 }
 
 /* Messenger Design */
@@ -157,7 +174,7 @@ h4,p {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 20vw;
+  width: 10vw;
   flex-grow: 1;
 }
 
@@ -178,15 +195,15 @@ h4,p {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin:3px 8px;
+  margin: 10px 10px 0 10px;
 }
 
 .message {
-  height: 6vh;
-  line-height: 40px;
+  height: 5vh;
+  line-height: 30px;
   overflow: hidden;
-  /* white-space: nowrap; */
-  /* text-overflow: ellipsis; */
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .date,.un-read-msg {

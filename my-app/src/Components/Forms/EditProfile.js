@@ -1,4 +1,5 @@
 import React from 'react'
+import validate from '../../validation/validateFunction'
 import profile from '../../image/profile.png'
 import user from '../../image/user.png'
 import bio from '../../image/bio.png'
@@ -7,9 +8,15 @@ class EditProfile extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
+      imageUrl: '',
       firstName: '',
       lastName: '',
-      bio: ''
+      bio: '',
+      error: {
+        firstName: null,
+        lastName: null,
+        bio: null
+      }
     }
   }
 
@@ -23,8 +30,18 @@ class EditProfile extends React.Component {
     console.log(event.target.value)
   }
 
-  onClick (event) {
-    console.log('this is', this)
+  onClick () {
+    var firstNameError = validate('firstName', this.state.firstName)
+    console.log(firstNameError)
+    var lastNameError = validate('lastName', this.state.lastName)
+    var bioError = validate('bio', this.state.bio)
+    this.setState({ ...this.state,
+      error: { ...this.state.error,
+        firstName: firstNameError,
+        lastName: lastNameError,
+        bio: bioError }
+    })
+    console.log(this.state)
   }
 
   render () {
@@ -35,7 +52,7 @@ class EditProfile extends React.Component {
               Edit Profile
           </h1>
           <img className='pro-img-box profile' src={profile} />
-          <div class='input-box'>
+          <div className='input-box'>
             <img
               className='material-icons'
               src={user}
@@ -49,7 +66,13 @@ class EditProfile extends React.Component {
               onChange={(event) => this.onChange(event)}
             />
           </div>
-          <div class='input-box'>
+          { this.state.error.firstName !== null &&
+            <p className='error-message'>
+              {this.state.error.firstName}
+            </p>
+          }
+
+          <div className='input-box'>
             <img
               className='material-icons'
               src={user}
@@ -63,7 +86,12 @@ class EditProfile extends React.Component {
               onChange={(event) => this.onChange(event)}
             />
           </div>
-          <div class='input-box'>
+          { this.state.error.lastName !== null &&
+            <p className='error-message'>
+              {this.state.error.lastName}
+            </p>
+          }
+          <div className='input-box'>
             <img
               className='material-icons'
               src={bio}
@@ -77,10 +105,14 @@ class EditProfile extends React.Component {
               onChange={(event) => this.onChange(event)}
             />
           </div>
-
+          { this.state.error.bio !== null &&
+            <p className='error-message'>
+              {this.state.error.bio}
+            </p>
+          }
           <button
             className='submit input-box'
-            onClick={this.onClick}
+            onClick={() => this.onClick()}
           >
             Submit
           </button>
