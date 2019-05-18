@@ -36,7 +36,7 @@
 .input-box {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-grow: 1;
   border-radius: 4px;
   margin-top: 15px;
@@ -72,6 +72,7 @@
   padding: 5px;
   background-color: #c7608c;
   margin: 30px 0;
+  justify-content: center;
 }
 
 .submit:hover {
@@ -232,6 +233,7 @@ h4,p {
   flex: 1 1 auto;
   position: relative;
   overflow-y: auto;
+  justify-content: flex-end;
 }
 
 .recived-msg {
@@ -278,15 +280,21 @@ header {
   padding: 0 10px;
 }
 
-footer {
+.footer {
   flex: 0 0 auto;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
 }
 
 
-textarea { 
+.textarea { 
   resize: none;
   overflow: hidden;
-  width: 60%;
+  flex-grow: 4;
   border: 0px;
   margin: 10px 30px ;
   padding: 10px;
@@ -294,6 +302,9 @@ textarea {
   font-size: 14px;
 }
 
+.send-icon {
+  width: 20px !important;
+}
 .send-msg-btn {
   flex: 0 3 auto;
   align-self: center;

@@ -1,5 +1,6 @@
 import React from 'react'
 import validate from '../../validation/validateFunction'
+import axios from 'axios'
 import logo from '../../image/logo.png'
 import { Link } from 'react-router-dom'
 import emailIcon from '../../image/emailIcon.png'
@@ -29,16 +30,30 @@ class Login extends React.Component {
   }
 
   onClick () {
-    var emailError = validate('email', this.state.email)
-    var passwordError = validate('password', this.state.password)
+    // var emailError = validate('email', this.state.email)
+    // var passwordError = validate('password', this.state.password)
     // var error = {}
     // error.email = emailError
     // error.password = passwordError
     // this.setState({ error })
-    this.setState({ ...this.state,
-      error: {
-        ...this.state.error, email: emailError, password: passwordError }
+    // this.setState({ ...this.state,
+    //   error: {
+    //     ...this.state.error, email: emailError, password: passwordError }
+    // })
+
+    axios.post('https://api.paywith.click/auth/signin/', {
+      email: this.state.email,
+      password: this.state.password
     })
+      .then(function (response) {
+        console.log('response...', response)
+        window.localstorage.setItem('token', response.data.data.token) //save token in localstorage
+        window.localstorage.setItem('id', response.data.data.profile.id) //save id
+      })
+      .catch(function (error) {
+        console.log('error...', error)
+      })
+      // window. giv token
   }
   // eslint-enable
   render () {

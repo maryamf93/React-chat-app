@@ -84,7 +84,7 @@ class ConversationList extends React.Component {
             return (
               <Conversation
                 key={index}
-                profileImg={photo}
+                profileImg={conversation.profileImg}
                 userName={conversation.userName}
                 latestMessage={conversation.latestMessage}
                 time={conversation.time}

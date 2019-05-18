@@ -3,16 +3,33 @@ import SendedMessage from './SendedMessage'
 import RecivedMessage from './RecivedMessages'
 
 class ChatScreen extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+    }
+  }
+
   render () {
     return (
       <div className='chat-box-inner'>
-        <RecivedMessage
-          recivedMsg='hello how are you'
-        />
-        <SendedMessage
-          sendedMsg='hi fine thank you'
-        />
-        <RecivedMessage
+        { this.props.messages.map((item, index) => {
+          if (item.id === 1) {
+            return (
+              <SendedMessage
+                sendedMsg={item.message}
+              />
+            )
+          } else {
+            return (
+              <RecivedMessage
+                recivedMsg={item.message}
+              />
+            )
+          }
+        })
+        }
+
+        {/* <RecivedMessage
           recivedMsg='what s up?'
         />
         <SendedMessage
@@ -62,7 +79,7 @@ class ChatScreen extends React.Component {
         />
         <SendedMessage
           sendedMsg='hi fine thank you'
-        />
+        /> */}
       </div>
     )
   }
