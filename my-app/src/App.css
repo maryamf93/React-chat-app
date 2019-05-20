@@ -149,7 +149,7 @@
 }
 
 h4,p {
-  margin: 10px 10px 0 10px;
+  margin-left: 20px;
 }
 
 .pro-img-box, .profile-img {
@@ -180,7 +180,7 @@ h4,p {
 }
 
 .add-contact {
- background-color: #963e63;
+  background-color: #ce89a6;
  display: flex;
  padding-left: 15px;
  align-items: center;
@@ -188,8 +188,7 @@ h4,p {
 
 .add-user-icon {
   width: 40px; 
-  background-color: #ffffff;
-  border-radius: 50%;
+  background-color: #ce89a6;
 }
 
 .info-conversation {
@@ -221,18 +220,18 @@ h4,p {
 
 /* chat design */
 .chat-box-outer {
-   display: flex;
+  display: flex;
   flex-direction: column; 
   flex-grow: 7;
-  overflow: auto;
-
+  /* overflow-y: auto; */
+  height: 100vh
 }
+
 .chat-box-inner {
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
-  position: relative;
-  overflow-y: auto;
+  flex: 1 ;
+  overflow: auto;
   justify-content: flex-end;
 }
 
@@ -267,10 +266,8 @@ h4,p {
   line-height: 1.4em;
 }
 
-header,footer {
+header,.footer {
   display: flex;
-  flex-direction: row;
-  width: 100%;
   background-color: #fff;
   border: 1px solid #00000013;
 }
@@ -284,26 +281,34 @@ header {
   flex: 0 0 auto;
   background-color: #fff;
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   padding: 5px;
+  background-color: #963e63;
 }
 
 
 .textarea { 
   resize: none;
   overflow: hidden;
-  flex-grow: 4;
+  flex-grow: 20;
   border: 0px;
   margin: 10px 30px ;
-  padding: 10px;
+  padding: 15px;
   height:30px;
   font-size: 14px;
+  border-radius: 15px
 }
 
+.textarea::-webkit-input-placeholder{
+  color: #bd92a4;
+}
+ 
+    
 .send-icon {
-  width: 20px !important;
+  background-color: #fff;
+  flex-grow: 1;
+  border-radius: 50%;
 }
 .send-msg-btn {
   flex: 0 3 auto;
@@ -336,3 +341,4 @@ header {
 
 }
 /* End Design scrollbar */
+

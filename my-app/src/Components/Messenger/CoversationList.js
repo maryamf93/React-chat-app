@@ -1,6 +1,6 @@
 import React from 'react'
 import Conversation from './Conversation'
-import photo from '../../image/photo.jpg'
+import profile from '../../image/profile.png'
 import addUser from '../../image/addUser.png'
 
 class ConversationList extends React.Component {
@@ -9,55 +9,55 @@ class ConversationList extends React.Component {
     this.state = {
       conversationList: [
         {
-          profileImg: { photo },
+          profileImg: { profile },
           userName: 'React Group',
           latestMessage: 'hi eve everybody hi everybody hi e eve rybody hi erybody hi everybody hi e every',
           time: '12:35',
           unReadMsg: '10000000'
         }, {
-          profileUrl: { photo },
+          profileUrl: { profile },
           userName: 'React Group',
           latestMessage: ' سلام به همه اعضای محترم گروه سلام به همه اعضای محترم گروه ',
           time: '12:35',
           unReadMsg: '5'
         }, {
-          profileImg: { photo },
+          profileImg: { profile },
           userName: 'React Group',
           latestMessage: 'hi eve everybody hi',
           time: '12:35',
           unReadMsg: '260'
         }, {
-          profileImg: { photo },
+          profileImg: { profile },
           userName: 'React Group',
           latestMessage: 'hi',
           time: '12:35',
           unReadMsg: '8'
         }, {
-          profileImg: { photo },
+          profileImg: { profile },
           userName: 'React Group',
           latestMessage: 'hi eve everybody hi everybody ',
           time: '12:35',
           unReadMsg: '1000'
         }, {
-          profileImg: { photo },
+          profileImg: { profile },
           userName: 'React Group',
           latestMessage: 'hi eve everybody ',
           time: '12:35',
           unReadMsg: '6'
         }, {
-          profileImg: { photo },
+          profileImg: { profile },
           userName: 'React Group',
           latestMessage: 'hi eve everybody hi ',
           time: '12:35',
           unReadMsg: '40'
         }, {
-          profileImg: { photo },
+          profileImg: { profile },
           userName: 'React Group',
           latestMessage: 'hi eve everybody ',
           time: '12:35',
           unReadMsg: '10'
         }, {
-          profileImg: { photo },
+          profileImg: { profile },
           userName: 'React Group',
           latestMessage: 'hi eve everybody ',
           time: '12:35',
@@ -84,7 +84,7 @@ class ConversationList extends React.Component {
             return (
               <Conversation
                 key={index}
-                profileImg={conversation.profileImg}
+                profileImg={profile}
                 userName={conversation.userName}
                 latestMessage={conversation.latestMessage}
                 time={conversation.time}

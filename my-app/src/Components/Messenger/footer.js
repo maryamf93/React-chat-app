@@ -1,4 +1,7 @@
-import React from 'react'
+// import React from 'react'
+import React, { Component } from 'react'
+import 'emoji-mart/css/emoji-mart.css'
+import { Picker } from 'emoji-mart'
 import send from '../../image/send.png'
 import addNewMessage from '../../Action/conversation'
 
@@ -37,12 +40,18 @@ class Footer extends React.Component {
           type='textarea'
           className='textarea'
           placeholder='Write a Message'
+          value={this.state.newMessage}
           onChange={(event) => this.onChange(event)}
         />
         <img
           src={send}
-          className='send-icon'
-          onClick= {() => this.props.dispatch(addNewMessage(this.state.newMessage))}
+          className='send-icon material-icons'
+          onClick={() => {
+            this.props.dispatch(addNewMessage(this.state.newMessage))
+            this.setState({
+              newMessage: ''
+            })
+          }}
         />
       </div>
     )
