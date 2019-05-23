@@ -18,7 +18,7 @@ class Conversation extends React.Component {
               {this.props.userName}
             </span>
             <span className='date'>
-              {this.props.time}
+              {this.props.time.slice(0,10)}
             </span>
           </div>
           <div className='info-conversation' >

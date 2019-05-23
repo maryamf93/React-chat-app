@@ -2,6 +2,7 @@ import React from 'react'
 import validate from '../../validation/validateFunction'
 import emailIcon from '../../image/emailIcon.png'
 import passIcon from '../../image/passIcon.png'
+import axios from 'axios'
 // import Input from './Input'
 // import logo from '../../logo.svg'
 
@@ -39,6 +40,59 @@ class SignUp extends React.Component {
         password: passwordError
       }
     })
+    // if (this.state.error.email === null && this.state.error.password === null) {
+    //   if (this.state.password === this.state.confirmPassword) {
+    //     let data = {
+    //       email: this.state.email,
+    //       password: this.state.password
+    //     }
+    //     axios.post('https://api.paywith.click/auth/signup/', data)
+    //       .then(response => {
+    //         console.log('response::::', response)
+    //         window.localStorage.setItem('token', response.data.token)
+    //         window.localStorage.setItem('id', response.data.id)
+    //       })
+    //       .catch(error => {
+    //         console.log('error::::', error)
+    //       })
+    //   } else {
+    //     this.setState({ ...this.state,
+    //       error: { ...this.state.error,
+    //         confirmPassword: 'Passwod and retype password do not match!'
+    //       }
+    //     })
+    //   }
+    // }
+    if (emailError !== null || passwordError !== null) {
+      this.setState({ ...this.state,
+        error: { ...this.state.error,
+          email: emailError,
+          password: passwordError
+        }
+      })
+    } else {
+      if (this.state.password === this.state.confirmPassword) {
+        let data = {
+          email: this.state.email,
+          password: this.state.password
+        }
+        axios.post('https://api.paywith.click/auth/signup/', data)
+          .then(response => {
+            console.log('response::::', response)
+            window.localStorage.setItem('token', response.data.token)
+            window.localStorage.setItem('id', response.data.id)
+          })
+          .catch(error => {
+            console.log('error::::', error)
+          })
+      } else {
+        this.setState({ ...this.state,
+          error: { ...this.state.error,
+            confirmPassword: 'Passwod and retype password do not match!'
+          }
+        })
+      }
+    }
   }
 
   render () {
@@ -103,9 +157,9 @@ class SignUp extends React.Component {
               onChange={(event) => this.onChange(event)}
             />
           </div>
-          { this.state.confirmPassword !== this.state.password &&
+          { this.state.error.confirmPassword !== null &&
             <p className='error-message'>
-              fffcdfc
+              {this.state.error.confirmPassword}
             </p>
           }
 

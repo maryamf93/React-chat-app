@@ -360,3 +360,36 @@ header {
 }
 /* End Design scrollbar */
 
+/* Search styles */
+.search-icon {
+  flex-grow: 1
+}
+
+.suggest {
+  font-size: 14px;
+  padding: 5px 15px;
+  border-bottom: 1px solid #1b8ca1;
+}
+
+.suggestedAvatar {
+  width: 30px;
+  border-radius: 7.5px
+}
+
+/* .Modal {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background-color: papayawhip;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rebeccapurple;
+} */
