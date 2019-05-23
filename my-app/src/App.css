@@ -110,15 +110,19 @@
 /* Messenger Design */
 .messenger-box {
   display: flex;
-  flex-flow: row nowrap;
+  /* flex-flow: row nowrap; */
+  justify-content: flex-start;
   height: 100vh;
 }
 
 .conversationList-box-outer {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   flex-grow: 3;
-  overflow: auto;
+  overflow: auto; */
+  border: 1px solid #000;
+  width: 30vw;
+  display: inline-block;
 }
 
 .conversationList-box-inner {
@@ -220,24 +224,36 @@ h4,p {
 
 /* chat design */
 .chat-box-outer {
-  display: flex;
   flex-direction: column; 
   flex-grow: 7;
+  justify-content: space-between;
   /* overflow-y: auto; */
-  height: 100vh
+  /* height: 100vh; */
+  display: flex !important;
+  border: 1px solid #000;
+  width: 69vw;
+  display: inline-block;
 }
 
 .chat-box-inner {
   display: flex;
   flex-direction: column;
-  flex: 1 ;
-  overflow: auto;
+  /* flex: 1 1 auto; */
+  overflow-y: auto;
   justify-content: flex-end;
+  flex-grow: 25;
+  background-color: #8fcac1;
 }
+
+.chatttt {
+  overflow-y: scroll;
+}
+/* .chat-box-inner >:first-child {  */
+  /* margin-top: auto  */
+/* } */
 
 .recived-msg {
   display: flex;
-  flex-flow: column nowrap;
   align-self: flex-start;
   margin: 5px;
 }
@@ -245,6 +261,7 @@ h4,p {
 .sended-msg {
   align-self: flex-end;
   margin: 5px;
+  display: flex;
 }
 
 .snd-msg-spn {
@@ -262,29 +279,30 @@ h4,p {
   padding: 10px;
   border-radius: 5px;
   max-width: 400px;
-  display: inline-block;
+  /* display: inline-block; */
   line-height: 1.4em;
 }
 
 header,.footer {
+  flex: 1;
   display: flex;
   background-color: #fff;
   border: 1px solid #00000013;
 }
 
 header {
-  flex: 0 0 auto;
+  /* flex: 0 0 auto; */
   padding: 0 10px;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .footer {
-  flex: 0 0 auto;
-  background-color: #fff;
-  display: flex;
+  /* flex: 0 0 auto; */
   justify-content: space-around;
+  background-color: #963e63;
   align-items: center;
   padding: 5px;
-  background-color: #963e63;
 }
 
 
