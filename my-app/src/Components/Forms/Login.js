@@ -47,8 +47,8 @@ class Login extends React.Component {
     })
       .then(function (response) {
         console.log('response...', response)
-        window.localstorage.setItem('token', response.data.data.token) //save token in localstorage
-        window.localstorage.setItem('id', response.data.data.profile.id) //save id
+        window.localStorage.setItem('token', response.data.data.token) //save token in localstorage
+        window.localStorage.setItem('id', response.data.data.profile.id) //save id
       })
       .catch(function (error) {
         console.log('error...', error)

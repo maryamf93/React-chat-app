@@ -2,74 +2,37 @@ import React from 'react'
 import Conversation from './Conversation'
 import profile from '../../image/profile.png'
 import addUser from '../../image/addUser.png'
+import axios from 'axios'
+import { saveConversationList } from '../../Action/conversation'
 
 class ConversationList extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      conversationList: [
-        {
-          profileImg: { profile },
-          userName: 'React Group',
-          latestMessage: 'hi eve everybody hi everybody hi e eve rybody hi erybody hi everybody hi e every',
-          time: '12:35',
-          unReadMsg: '10000000'
-        }, {
-          profileUrl: { profile },
-          userName: 'React Group',
-          latestMessage: ' سلام به همه اعضای محترم گروه سلام به همه اعضای محترم گروه ',
-          time: '12:35',
-          unReadMsg: '5'
-        }, {
-          profileImg: { profile },
-          userName: 'React Group',
-          latestMessage: 'hi eve everybody hi',
-          time: '12:35',
-          unReadMsg: '260'
-        }, {
-          profileImg: { profile },
-          userName: 'React Group',
-          latestMessage: 'hi',
-          time: '12:35',
-          unReadMsg: '8'
-        }, {
-          profileImg: { profile },
-          userName: 'React Group',
-          latestMessage: 'hi eve everybody hi everybody ',
-          time: '12:35',
-          unReadMsg: '1000'
-        }, {
-          profileImg: { profile },
-          userName: 'React Group',
-          latestMessage: 'hi eve everybody ',
-          time: '12:35',
-          unReadMsg: '6'
-        }, {
-          profileImg: { profile },
-          userName: 'React Group',
-          latestMessage: 'hi eve everybody hi ',
-          time: '12:35',
-          unReadMsg: '40'
-        }, {
-          profileImg: { profile },
-          userName: 'React Group',
-          latestMessage: 'hi eve everybody ',
-          time: '12:35',
-          unReadMsg: '10'
-        }, {
-          profileImg: { profile },
-          userName: 'React Group',
-          latestMessage: 'hi eve everybody ',
-          time: '12:35',
-          unReadMsg: '10'
-        }
-
-      ]
+      conversationList: [],
+      myId: window.localStorage.getItem('id')
     }
   }
 
+  componentDidMount () {
+    const token = window.localStorage.getItem('token')
+    axios.get('https://api.paywith.click/conversation/', {
+      params: {
+        token: token
+      }
+    })
+      .then(response => {
+        console.log('this:::::', this)
+        this.props.dispatch(saveConversationList(response.data.data.conversation_details))
+      })
+      // conversation_details is an array
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
   render () {
-    console.log(this.props.profileUrl)
+    console.log(this.props)
     return (
       <div className='conversationList-box-outer'>
         <div className='add-contact'>
@@ -80,17 +43,21 @@ class ConversationList extends React.Component {
         </div>
         <div className='conversationList-box-inner'>
 
-          { this.state.conversationList.map((conversation, index) => {
-            return (
-              <Conversation
-                key={index}
-                profileImg={profile}
-                userName={conversation.userName}
-                latestMessage={conversation.latestMessage}
-                time={conversation.time}
-                unReadMsg={conversation.unReadMsg}
-              />
-            )
+          { this.props.conversationList.map((conversation, index) => {
+            conversation.users.map((user, idx) => {
+              if (user.id != this.state.myId) {
+                return (
+                  <Conversation
+                    key={index}
+                    profileImg={profile}
+                    userName={user.name}
+                    latestMessage={conversation.latest_message}
+                    time={conversation.latest_message_date}
+                    unReadMsg={conversation.unReadMsg}
+                  />
+                )
+              }
+            })
           })
           }
         </div>

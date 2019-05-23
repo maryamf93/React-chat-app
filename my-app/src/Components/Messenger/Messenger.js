@@ -1,12 +1,12 @@
 import React from 'react'
-import ConversationList from './CoversationList'
+import ConversationListContainer from '../../container/ConversationListContainer'
 import Chat from './Chat'
 
 class Messenger extends React.Component {
   render () {
     return (
       <div className='messenger-box' >
-        <ConversationList />
+        <ConversationListContainer />
         <Chat />
       </div>
     )

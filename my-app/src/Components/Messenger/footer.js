@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import 'emoji-mart/css/emoji-mart.css'
 import { Picker } from 'emoji-mart'
 import send from '../../image/send.png'
-import addNewMessage from '../../Action/conversation'
+import { addNewMessage } from '../../Action/conversation'
 
 class Footer extends React.Component {
   constructor (props) {
@@ -33,6 +33,12 @@ class Footer extends React.Component {
     this.props.getNewMessage(value)
   }
 
+  sendNewMessage () {
+    this.props.dispatch(addNewMessage(this.state.newMessage))
+    this.setState({
+      newMessage: '' })
+  }
+
   render () {
     return (
       <div className='footer' >
@@ -47,10 +53,7 @@ class Footer extends React.Component {
           src={send}
           className='send-icon material-icons'
           onClick={() => {
-            this.props.dispatch(addNewMessage(this.state.newMessage))
-            this.setState({
-              newMessage: ''
-            })
+            this.sendNewMessage()
           }}
         />
       </div>

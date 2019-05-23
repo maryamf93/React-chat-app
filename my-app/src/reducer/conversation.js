@@ -14,7 +14,8 @@ const INIT = {
       id: 1,
       message: 'chetorii?'
     }
-  ]
+  ],
+  conversationList: []
 }
 
 function conversation (state = INIT, action) {
@@ -24,6 +25,12 @@ function conversation (state = INIT, action) {
         ...state,
         newMessage: action.payload,
         messages: [ ...state.messages, { id: 1, message: action.payload } ]
+      }
+
+    case 'SAVE_CONVERSATION_LIST':
+      return {
+        ...state,
+        conversationList: action.payload
       }
     default:
       return state
