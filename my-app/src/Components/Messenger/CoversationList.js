@@ -1,5 +1,5 @@
 import React from 'react'
-import Conversation from './Conversation'
+import ConversationContainer from '../../container/ConversationContainer'
 import profile from '../../image/profile.png'
 import search from '../../image/search.png'
 import addUser from '../../image/addUser.png'
@@ -69,6 +69,21 @@ class ConversationList extends React.Component {
       })
   }
 
+  handleSuggest (user) {
+    // console.log('userssss', user)
+    let fdata = new FormData()
+    fdata.append('token', this.state.token)
+    fdata.append('user_id', user.id)
+    console.log('fdata', fdata)
+    axios.post('https://api.paywith.click/conversation/', fdata)
+      .then(response => {
+        console.log('responsesugest...', response)
+      })
+      .catch(error => {
+        console.log('error...', error)
+      })
+  }
+
   render () {
     console.log(this.props)
     return (
@@ -81,11 +96,9 @@ class ConversationList extends React.Component {
           />
 
           <ReactModal
+            // className='modal'
             isOpen={this.state.showModal}
             contentLabel='Minimal Modal Example'
-          //  onRequestClose={this.handleCloseModal}
-            // className='Modal'
-            // overlayClassName='Overlay'
           >
             <button onClick={this.handleCloseModal}> Close </button>
             <div div className='input-box'>
@@ -104,7 +117,15 @@ class ConversationList extends React.Component {
             </div>
             { this.state.suggestedUsers.map((user, index) => {
               return (
-                <p className='suggest'><img src={user.avatar_url} className='suggestedAvatar'/> {user.email}</p>
+                <p
+                  className='suggest'
+                  onClick={() => this.handleSuggest(user)}
+                >
+                  <img
+                    src={user.avatar_url}
+                    className='suggestedAvatar' />
+                  {user.email}
+                </p>
               )
             }
             )}
@@ -118,13 +139,16 @@ class ConversationList extends React.Component {
               conversation.users.map((user, idx) => {
                 if (user.id !== this.state.myId) {
                   return (
-                    <Conversation
+                    <ConversationContainer
                       key={index}
                       profileImg={user.avatar_url}
-                      userName={user.name}
+                      userName={user.email}
                       latestMessage={conversation.latest_message}
                       time={conversation.latest_message_date}
                       unReadMsg={conversation.unReadMsg}
+                      token={this.state.token}
+                      conversationId={conversation.id}
+                      avatar={user.avatar_url}
                     />
                   )
                 }

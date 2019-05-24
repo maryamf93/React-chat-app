@@ -1,18 +1,18 @@
 import { connect } from 'react-redux'
-import Footer from '../Components/Messenger/footer'
+import Header from '../Components/Messenger/header'
 
 const mapDispatchToProps = dispatch => ({
   dispatch: dispatch
 })
 
 const mapStateToProps = state => ({
-  conversationId: state.conversationId
+  user: state.user,
+  avatar: state.avatar
 })
 
-
-const FooterContainer = connect(
+const HeaderContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Footer)
+)(Header)
 
-export default FooterContainer
+export default HeaderContainer

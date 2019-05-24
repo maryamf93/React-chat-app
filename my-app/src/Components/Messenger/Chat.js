@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './header'
+import HeaderContainer from '../../container/HeaderContainer'
 import FooterContainer from '../../container/FooterContainer'
 import ChatScreenContainer from '../../container/ChatScreenContainer'
 
@@ -18,7 +18,7 @@ class Chat extends React.Component {
   render () {
     return (
       <div className='chat-box-outer'>
-        <Header />
+        <HeaderContainer />
         <ChatScreenContainer />
         <FooterContainer
           getNewMessage={(event) => this.getNewMessage(event)}

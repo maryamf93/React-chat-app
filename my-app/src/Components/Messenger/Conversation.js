@@ -1,10 +1,37 @@
 import React from 'react'
+import axios from 'axios'
+import { saveMessages } from '../../Action/conversation'
 
 class Conversation extends React.Component {
+  onClick () {
+    let date = Math.ceil(new Date().getTime() / 1000)
+    console.log('date', this.props.token)
+    let fdata = new FormData()
+    fdata.append('token', this.props.token)
+    fdata.append('conversation_id', this.props.conversationId)
+    fdata.append('size', 10)
+    fdata.append('date', date)
+    console.log('fdata', fdata)
+    axios.post('https://api.paywith.click/conversation/details/', fdata)
+      .then(response => {
+        console.log('responsemessages', response)
+        this.props.dispatch(saveMessages(
+          response.data.data.messages,
+          this.props.userName,
+          this.props.avatar,
+          this.props.conversationId)
+        )
+      })
+      .catch(error => {
+        console.log('error...', error)
+      })
+  }
+
   render () {
     return (
-      <div className='conversation-box'>
-
+      <div className='conversation-box'
+        onClick={() => this.onClick()}
+      >
         <div className='pro-img-box'>
           <img
             className='profile-img'
@@ -18,7 +45,7 @@ class Conversation extends React.Component {
               {this.props.userName}
             </span>
             <span className='date'>
-              {this.props.time.slice(0,10)}
+              {this.props.time.slice(0, 10)}
             </span>
           </div>
           <div className='info-conversation' >

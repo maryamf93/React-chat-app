@@ -6,6 +6,7 @@ class ChatScreen extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
+      myId : window.localStorage.getItem('id')
     }
   }
 
@@ -14,16 +15,16 @@ class ChatScreen extends React.Component {
       <div className='chatttt'>
         <div className='chat-box-inner'>
           { this.props.messages.map((item, index) => {
-            if (item.id === 1) {
+            if (item.sender.id == this.state.myId) {
               return (
                 <SendedMessage
-                  sendedMsg={item.message}
+                  sendedMsg={item.text}
                 />
               )
             } else {
               return (
                 <RecivedMessage
-                  recivedMsg={item.message}
+                  recivedMsg={item.text}
                 />
               )
             }

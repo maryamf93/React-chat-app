@@ -4,9 +4,11 @@ class Header extends React.Component {
   render () {
     return (
       <header>
-        <img className='pro-img-box' />
+        <img className='pro-img-box'
+          src={this.props.avatar}
+        />
         <h4 className='contact-name'>
-          maryam fooladi
+          {this.props.user}
         </h4>
       </header>
     )

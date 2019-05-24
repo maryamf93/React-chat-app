@@ -12,3 +12,13 @@ export const saveConversationList = (conversationList) => {
     payload: conversationList
   }
 }
+
+export const saveMessages = (messages, user, avatar, conversationId) => {
+  return {
+    type: 'SAVE_MESSAGES',
+    payload: messages,
+    user: user,
+    avatar: avatar,
+    conversationId: conversationId
+  }
+}

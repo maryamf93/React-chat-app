@@ -393,3 +393,19 @@ header {
   bottom: 0;
   background-color: rebeccapurple;
 } */
+
+/* .modal {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ceb1ca;
+  border-radius: 10px;
+  position: absolute;
+  inset: 40px;
+  outline: currentcolor none medium;
+  top: 40px;
+right: 40px;
+bottom: 40px;
+left: 40px;
+} */
