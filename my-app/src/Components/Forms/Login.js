@@ -30,32 +30,32 @@ class Login extends React.Component {
   }
 
   onClick () {
-    // var emailError = validate('email', this.state.email)
-    // var passwordError = validate('password', this.state.password)
-    // var error = {}
-    // error.email = emailError
-    // error.password = passwordError
-    // this.setState({ error })
-    // this.setState({ ...this.state,
-    //   error: {
-    //     ...this.state.error, email: emailError, password: passwordError }
-    // })
-
-    axios.post('https://api.paywith.click/auth/signin/', {
-      email: this.state.email,
-      password: this.state.password
-    })
-      .then(function (response) {
-        console.log('response...', response)
-        window.localStorage.setItem('token', response.data.data.token) //save token in localstorage
-        window.localStorage.setItem('id', response.data.data.profile.id) //save id
+    var emailError = validate('email', this.state.email)
+    var passwordError = validate('password', this.state.password)
+    if (emailError !== null || passwordError !== null) {
+      this.setState({ ...this.state,
+        error: { ...this.state.error,
+          email: emailError,
+          password: passwordError
+        }
       })
-      .catch(function (error) {
-        console.log('error...', error)
-      })
-      // window. giv token
+    } else {
+      let data = {
+        email: this.state.email,
+        password: this.state.password
+      }
+      axios.post('https://api.paywith.click/auth/signip/', data)
+        .then(response => {
+          console.log('response::::', response)
+          window.localStorage.setItem('token', response.data.data.token)
+          window.localStorage.setItem('id', response.data.data.profile.id)
+        })
+        .catch(error => {
+          console.log('error::::', error)
+        })
+    }
   }
-  // eslint-enable
+
   render () {
     return (
       <div className='App' >

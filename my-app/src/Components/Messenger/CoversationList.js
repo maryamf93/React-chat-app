@@ -3,6 +3,7 @@ import ConversationContainer from '../../container/ConversationContainer'
 import profile from '../../image/profile.png'
 import search from '../../image/search.png'
 import addUser from '../../image/addUser.png'
+import close from '../../image/close.png'
 import axios from 'axios'
 import { saveConversationList } from '../../Action/conversation'
 import ReactModal from 'react-modal'
@@ -96,11 +97,16 @@ class ConversationList extends React.Component {
           />
 
           <ReactModal
-            // className='modal'
             isOpen={this.state.showModal}
             contentLabel='Minimal Modal Example'
+            className='Modal'
+            overlayClassName='Overlay'
           >
-            <button onClick={this.handleCloseModal}> Close </button>
+            <img
+              className='close-icon'
+              src={close}
+              onClick={this.handleCloseModal}
+            />
             <div div className='input-box'>
               <img
                 className='material-icons search-icon'
@@ -109,7 +115,7 @@ class ConversationList extends React.Component {
               />
               <input
                 className='input-box-inner'
-                // className='search'
+                
                 placeholder='search conversation...'
                 onChange={(event) => this.onChange(event)}
               />
@@ -137,14 +143,14 @@ class ConversationList extends React.Component {
             console.log('......', this.state.myId)
             return (
               conversation.users.map((user, idx) => {
-                if (user.id !== this.state.myId) {
+                if (user.id != this.state.myId) {
                   return (
                     <ConversationContainer
                       key={index}
                       profileImg={user.avatar_url}
                       userName={user.email}
                       latestMessage={conversation.latest_message}
-                      time={conversation.latest_message_date}
+                      date={conversation.latest_message_date}
                       unReadMsg={conversation.unReadMsg}
                       token={this.state.token}
                       conversationId={conversation.id}

@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { saveMessages } from '../../Action/conversation'
+import moment from 'moment'
 
 class Conversation extends React.Component {
   onClick () {
@@ -42,10 +43,10 @@ class Conversation extends React.Component {
         <div className='contentContainer' >
           <div className='info-conversation' >
             <span className='contact-name'>
-              {this.props.userName}
+              {this.props.userName.slice(0, -10)}
             </span>
             <span className='date'>
-              {this.props.time.slice(0, 10)}
+              {moment(this.props.date).calendar()}
             </span>
           </div>
           <div className='info-conversation' >

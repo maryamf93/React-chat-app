@@ -34,35 +34,6 @@ class SignUp extends React.Component {
   onClick () {
     var emailError = validate('email', this.state.email)
     var passwordError = validate('password', this.state.password)
-    this.setState({ ...this.state,
-      error: { ...this.state.error,
-        email: emailError,
-        password: passwordError
-      }
-    })
-    // if (this.state.error.email === null && this.state.error.password === null) {
-    //   if (this.state.password === this.state.confirmPassword) {
-    //     let data = {
-    //       email: this.state.email,
-    //       password: this.state.password
-    //     }
-    //     axios.post('https://api.paywith.click/auth/signup/', data)
-    //       .then(response => {
-    //         console.log('response::::', response)
-    //         window.localStorage.setItem('token', response.data.token)
-    //         window.localStorage.setItem('id', response.data.id)
-    //       })
-    //       .catch(error => {
-    //         console.log('error::::', error)
-    //       })
-    //   } else {
-    //     this.setState({ ...this.state,
-    //       error: { ...this.state.error,
-    //         confirmPassword: 'Passwod and retype password do not match!'
-    //       }
-    //     })
-    //   }
-    // }
     if (emailError !== null || passwordError !== null) {
       this.setState({ ...this.state,
         error: { ...this.state.error,

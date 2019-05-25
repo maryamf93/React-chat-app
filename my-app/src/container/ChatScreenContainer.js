@@ -7,7 +7,8 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => ({
   newMessage: state.newMessage,
-  messages: state.messages
+  messages: state.messages,
+  date: state.date
 })
 
 const ChatScreenContainer = connect(

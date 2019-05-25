@@ -13,11 +13,11 @@ function conversation (state = INIT, action) {
       return {
         ...state,
         newMessage: action.payload,
-        messages: [ ...state.messages, 
-          { 
-            sender:{ id:myId },
-            text: action.payload 
-          } 
+        messages: [ ...state.messages,
+          {
+            sender: { id: myId },
+            text: action.payload
+          }
         ]
       }
 
