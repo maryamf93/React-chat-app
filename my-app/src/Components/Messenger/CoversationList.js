@@ -115,8 +115,8 @@ class ConversationList extends React.Component {
               />
               <input
                 className='input-box-inner'
-                
-                placeholder='search conversation...'
+
+                placeholder='search conntact...'
                 onChange={(event) => this.onChange(event)}
               />
 
@@ -143,18 +143,17 @@ class ConversationList extends React.Component {
             console.log('......', this.state.myId)
             return (
               conversation.users.map((user, idx) => {
-                if (user.id != this.state.myId) {
+                if (user.id.toString() !== this.state.myId) {
                   return (
                     <ConversationContainer
                       key={index}
-                      profileImg={user.avatar_url}
+                      avatar={user.avatar_url}
                       userName={user.email}
                       latestMessage={conversation.latest_message}
                       date={conversation.latest_message_date}
                       unReadMsg={conversation.unReadMsg}
                       token={this.state.token}
                       conversationId={conversation.id}
-                      avatar={user.avatar_url}
                     />
                   )
                 }

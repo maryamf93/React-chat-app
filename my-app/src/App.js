@@ -4,7 +4,7 @@ import './App.css'
 import Login from './Components/Forms/Login'
 import SignUp from './Components/Forms/SignUp'
 import Messenger from './Components/Messenger/Messenger'
-import EditProfile from './Components/Forms/EditProfile'
+import CompleteProfile from './Components/Forms/CompleteProfile'
 import conversation from './reducer/conversation'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
@@ -18,7 +18,7 @@ class App extends React.Component {
         <Router>
           <Route path='/' exact component={Login} />
           <Route path='/signup/' component={SignUp} />
-          <Route path='/editProfile/' component={EditProfile} />
+          <Route path='/completeProfile/' component={CompleteProfile} />
           <Route path='/messenger/' component={Messenger} />
         </Router>
         {/* <Login /> */}

@@ -3,8 +3,9 @@ import validate from '../../validation/validateFunction'
 import profile from '../../image/profile.png'
 import user from '../../image/user.png'
 import bio from '../../image/bio.png'
+import axios from 'axios'
 
-class EditProfile extends React.Component {
+class CompleteProfile extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -16,7 +17,8 @@ class EditProfile extends React.Component {
         firstName: null,
         lastName: null,
         bio: null
-      }
+      },
+      token: window.localStorage.getItem('token')
     }
   }
 
@@ -41,6 +43,21 @@ class EditProfile extends React.Component {
         lastName: lastNameError,
         bio: bioError }
     })
+    let fdata = new FormData()
+    fdata.append('token', this.state.token)
+    fdata.append('first_name', this.state.firstName)
+    fdata.append('last_name', this.state.lastName)
+    // fdata.append('date', date)
+    console.log('fdata', fdata)
+    axios.post('https://api.paywith.click/auth/profile/', fdata)
+      .then(response => {
+        console.log('responseprofile::::', response)
+        
+      })
+      .catch(error => {
+        console.log('error::::', error)
+      })
+
     console.log(this.state)
   }
 
@@ -49,7 +66,7 @@ class EditProfile extends React.Component {
       <idv className='App' >
         <div className='container' >
           <h1>
-              Edit Profile
+              Complete Profile
           </h1>
           <img className='pro-img-box profile' src={profile} />
           <div className='input-box'>
@@ -122,4 +139,4 @@ class EditProfile extends React.Component {
   }
 }
 
-export default EditProfile
+export default CompleteProfile

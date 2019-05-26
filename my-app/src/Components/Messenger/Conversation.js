@@ -36,7 +36,7 @@ class Conversation extends React.Component {
         <div className='pro-img-box'>
           <img
             className='profile-img'
-            src={this.props.profileImg}
+            src={this.props.avatar}
           />
         </div>
 

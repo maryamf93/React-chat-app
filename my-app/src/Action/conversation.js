@@ -22,3 +22,4 @@ export const saveMessages = (messages, user, avatar, conversationId) => {
     conversationId: conversationId
   }
 }
+
