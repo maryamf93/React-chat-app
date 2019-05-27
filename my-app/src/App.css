@@ -172,6 +172,9 @@ h4,p {
   height: 60px;
   border-radius: 50%;
   background-color: #52283a;
+  background-image: url('./image/profile.png');
+  background-repeat: repeat;
+  background-size: cover;
 }
 
 .profile-img {
@@ -180,12 +183,28 @@ h4,p {
 }
 
 .profile {
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   align-self: center;
   margin-top: -10px;
+  background-image: url('./image/profile.png');
+  background-repeat: repeat;
+  background-size: cover;
 }
 
+.camera-icon {
+  width: 45px;
+  border-radius: 50%;
+  margin-left: -30px;
+  padding: 5px;
+  background-image: linear-gradient(35deg, #ff2180, #9e3a79cc, #b49fa8)
+}
+
+.camera-icon:hover {
+  background-color: #d62d76;
+  width: 50px;
+  transition: all .3s;
+}
 .contentContainer {
   display: flex;
   flex-direction: column;

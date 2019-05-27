@@ -1,6 +1,6 @@
 import React from 'react'
 import ConversationContainer from '../../container/ConversationContainer'
-import profile from '../../image/profile.png'
+// import profile from '../../image/profile.png'
 import search from '../../image/search.png'
 import addUser from '../../image/addUser.png'
 import close from '../../image/close.png'

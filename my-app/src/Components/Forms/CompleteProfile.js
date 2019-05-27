@@ -4,6 +4,7 @@ import profile from '../../image/profile.png'
 import user from '../../image/user.png'
 import bio from '../../image/bio.png'
 import axios from 'axios'
+import InputFileReader from './InputFileReader'
 
 class CompleteProfile extends React.Component {
   constructor (props) {
@@ -52,7 +53,6 @@ class CompleteProfile extends React.Component {
     axios.post('https://api.paywith.click/auth/profile/', fdata)
       .then(response => {
         console.log('responseprofile::::', response)
-        
       })
       .catch(error => {
         console.log('error::::', error)
@@ -68,7 +68,7 @@ class CompleteProfile extends React.Component {
           <h1>
               Complete Profile
           </h1>
-          <img className='pro-img-box profile' src={profile} />
+          <InputFileReader />
           <div className='input-box'>
             <img
               className='material-icons'

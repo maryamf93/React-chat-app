@@ -46,7 +46,7 @@ class Login extends React.Component {
       }
       axios.post('https://api.paywith.click/auth/signip/', data)
         .then(response => {
-          console.log('response::::', response)
+          console.log('response::::', response.data)
           window.localStorage.setItem('token', response.data.data.token)
           window.localStorage.setItem('id', response.data.data.profile.id)
         })
