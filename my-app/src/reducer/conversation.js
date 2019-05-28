@@ -4,8 +4,10 @@ const INIT = {
   messages: [],
   conversationList: [],
   user: '',
-  conversationId: ''
+  conversationId: '',
+  src: ''
 }
+
 var myId = window.localStorage.getItem('id')
 function conversation (state = INIT, action) {
   switch (action.type) {

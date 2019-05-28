@@ -1,12 +1,13 @@
 import React from 'react'
 import ConversationContainer from '../../container/ConversationContainer'
-// import profile from '../../image/profile.png'
+import setting from '../../image/setting.png'
 import search from '../../image/search.png'
 import addUser from '../../image/addUser.png'
 import close from '../../image/close.png'
 import axios from 'axios'
 import { saveConversationList } from '../../Action/conversation'
 import ReactModal from 'react-modal'
+import { Link } from 'react-router-dom'
 
 ReactModal.setAppElement('#root')
 
@@ -89,7 +90,16 @@ class ConversationList extends React.Component {
     console.log(this.props)
     return (
       <div className='conversationList-box-outer'>
-        <div className='add-contact'>
+        <div className='header-conv-list'>
+
+          <Link
+            to='/completeProfile/'
+          >
+            <img
+              className='setting-icon'
+              src={setting}
+            />
+          </Link>
           <img
             className='add-user-icon'
             src={addUser}

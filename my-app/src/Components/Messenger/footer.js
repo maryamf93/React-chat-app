@@ -1,5 +1,4 @@
-// import React from 'react'
-import React, { Component } from 'react'
+import React from 'react'
 import 'emoji-mart/css/emoji-mart.css'
 // import { Picker } from 'emoji-mart'
 import send from '../../image/send.png'
@@ -25,8 +24,7 @@ class Footer extends React.Component {
           id: 1,
           message: 'khubi'
         }
-      ],
-      
+      ]
     }
   }
 
@@ -38,11 +36,8 @@ class Footer extends React.Component {
 
   sendNewMessage () {
     this.props.dispatch(addNewMessage(this.state.newMessage))
-    // this.setState({
-    //   newMessage: '' })
     console.log('date', this.props.conversationId)
-    
-    let fdata = new FormData()  
+    let fdata = new FormData()
     fdata.append('token', this.state.token)
     fdata.append('conversation_id', this.props.conversationId)
     fdata.append('text', this.state.newMessage)
@@ -56,8 +51,6 @@ class Footer extends React.Component {
         console.log('error...', error)
       })
   }
-
-
 
   render () {
     return (

@@ -12,6 +12,7 @@ class Login extends React.Component {
     this.state = {
       email: '',
       password: '',
+      clicked: false,
       error: {
         email: null,
         password: null
@@ -30,16 +31,23 @@ class Login extends React.Component {
   }
 
   onClick () {
+    this.setState({ ...this.state, clicked: true })
     var emailError = validate('email', this.state.email)
     var passwordError = validate('password', this.state.password)
     if (emailError !== null || passwordError !== null) {
       this.setState({ ...this.state,
+        clicked: true,
         error: { ...this.state.error,
           email: emailError,
           password: passwordError
         }
       })
     } else {
+      // let fdata = new FormData()
+      // console.log('requestSrc', this.state.email)
+      // console.log('requestToken', this.state.password)
+      // fdata.append('email', this.state.email)
+      // fdata.append('password', this.state.password)
       let data = {
         email: this.state.email,
         password: this.state.password
@@ -49,6 +57,7 @@ class Login extends React.Component {
           console.log('response::::', response.data)
           window.localStorage.setItem('token', response.data.data.token)
           window.localStorage.setItem('id', response.data.data.profile.id)
+          // this.setState({ email: '', password: '' })
         })
         .catch(error => {
           console.log('error::::', error)
@@ -117,6 +126,14 @@ class Login extends React.Component {
           >
             Log in
           </button>
+          { this.state.clicked === true &&
+            <Link
+              to='/messenger/'
+              className='link  input-box submit'
+            >
+            Messenger
+            </Link>
+          }
           <p>
             Don't have an account?
             <Link

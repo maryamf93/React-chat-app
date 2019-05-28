@@ -71,7 +71,7 @@
   color: #fff;
   padding: 5px;
   background-color: #c7608c;
-  margin: 30px 0;
+  margin: 15px 0;
   justify-content: center;
 }
 
@@ -133,14 +133,6 @@
   flex: 1 1 auto;
   position: relative;
   overflow-y: auto;
-}
-
-.add-contact {
-  flex: 0 0 auto;
-  font-size: 26px;
-  height: 62px;
-  background-color: #fff;
-  border: 1px solid #00000013;
 }
 
 /* Styling to every Conversation */
@@ -213,16 +205,30 @@ h4,p {
   flex-grow: 1;
 }
 
-.add-contact {
-  background-color: #ce89a6;
+.header-conv-list {
+  background-image: linear-gradient(20deg, #d74f8ab3, #ae307f,#b19aa4cc,#c30f5db3);
  display: flex;
- padding-left: 15px;
+ flex: 0 0 auto;
+ padding: 15px;
  align-items: center;
+ justify-content: space-between;
+ height: 62px;
+ border: 1px solid #00000013;
 }
+
+.setting-icon {
+  width: 45px;
+}
+
+.setting-icon:hover {
+  width: 55px;
+  transition: all .3s;
+}
+
 
 .add-user-icon {
   width: 40px; 
-  background-color: #ce89a6;
+  background-color: inherit;
 }
 
 .info-conversation {
@@ -315,11 +321,13 @@ header,.footer {
   background-color: #fff;
   border: 1px solid #00000013;
   align-items: center;
+  background-image: linear-gradient(14deg, #9e0e4cb3, #a87896b3, #863557cc)
 }
 
 header {
   padding: 0 10px;
   justify-content: flex-start;
+  
 }
 
 .footer {
@@ -446,8 +454,9 @@ header {
   background-color: #b1aab1fb;
 }
 
-.add-user-icon:hover {
-  background-color: #8d3359;
+.add-user-icon:hover {  
+  width: 50px;
+  transition: all .3s;
 }
 
 .send-icon:hover {

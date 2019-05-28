@@ -1,7 +1,6 @@
 import React from 'react'
 import SendedMessage from './SendedMessage'
 import RecivedMessage from './RecivedMessages'
-import moment from 'moment'
 
 class ChatScreen extends React.Component {
   constructor (props) {
@@ -15,7 +14,7 @@ class ChatScreen extends React.Component {
     return (
       <div className='chat-box-inner'>
         { this.props.messages.map((item, index) => {
-          if (item.sender.id == this.state.myId) {
+          if (item.sender.id.toString() === this.state.myId) {
             return (
               <SendedMessage
                 sendedMsg={item.text}
