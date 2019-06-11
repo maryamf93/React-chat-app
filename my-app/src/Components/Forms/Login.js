@@ -5,6 +5,7 @@ import logo from '../../image/logo.png'
 import { Link } from 'react-router-dom'
 import emailIcon from '../../image/emailIcon.png'
 import passIcon from '../../image/passIcon.png'
+import { withRouter } from "react-router"
 
 class Login extends React.Component {
   constructor (props) {
@@ -31,7 +32,7 @@ class Login extends React.Component {
   }
 
   onClick () {
-    this.setState({ ...this.state, clicked: true })
+    // this.setState({ ...this.state, clicked: true })
     var emailError = validate('email', this.state.email)
     var passwordError = validate('password', this.state.password)
     if (emailError !== null || passwordError !== null) {
@@ -52,12 +53,12 @@ class Login extends React.Component {
         email: this.state.email,
         password: this.state.password
       }
-      axios.post('https://api.paywith.click/auth/signip/', data)
+      axios.post('https://api.paywith.click/auth/signin/', data)
         .then(response => {
           console.log('response::::', response.data)
           window.localStorage.setItem('token', response.data.data.token)
           window.localStorage.setItem('id', response.data.data.profile.id)
-          // this.setState({ email: '', password: '' })
+          this.props.history.push('./messenger')
         })
         .catch(error => {
           console.log('error::::', error)
@@ -150,4 +151,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login
+export default withRouter(Login)
